@@ -151,7 +151,7 @@
     "no-ternary": "off",
     "no-this-before-super": "error",
     "no-undef-init": "error",
-    "no-undefined": "error",
+    "no-undefined": "off",
     "no-underscore-dangle": "error",
     "no-unneeded-ternary": "error",
     "no-unsafe-finally": "error",
@@ -183,7 +183,8 @@
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "unicorn/filename-case": ["error", { "cases": { "camelCase": true, "pascalCase": true } }],
     "import/no-default-export": "error",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "unicorn/no-null": "off"
   },
   "categories": {
     "correctness": "error",

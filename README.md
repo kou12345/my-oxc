@@ -150,6 +150,10 @@ npm run format
 - `no-nested-ternary`: ネストした三項演算子を禁止
 - `no-unneeded-ternary`: 不要な三項演算子を禁止
 
+### 値の取り扱い
+- `unicorn/no-null`: 無効化（nullとundefinedの使用を開発者の判断に委ねる）
+- `no-undefined`: 無効化（undefinedの使用を許可）
+
 ## 使用例
 
 ```bash
@@ -245,6 +249,7 @@ export default function MyComponent() {
 // ファイル名の不適切な命名
 // my-component.tsx (kebab-case)
 // my_component.tsx (snake_case)
+
 ```
 
 ### ✅ Good Examples
@@ -291,4 +296,17 @@ export const getMessage = (isError) => isError ? "エラーです" : "成功で�
 import { useState } from 'react';
 import axios from 'axios';
 import { validateInput } from './utils';
+
+// nullとundefinedの使用は開発者の判断に委ねる
+const value1 = undefined;
+const value2 = null;
+const result = data !== undefined ? data : "default";
+
+// Reactコンポーネントではnullが型システム上必要
+export const MyComponent = ({ show }: { show: boolean }) => {
+  if (!show) {
+    return null; // TypeScriptの型システムで要求される
+  }
+  return <div>Hello</div>;
+};
 ```
