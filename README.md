@@ -111,8 +111,9 @@ npm run format
 - `complexity`: 循環的複雑度を10に制限
 - `max-params`: 関数の引数数を3に制限
 - `max-depth`: ネストの深さを3に制限
-- `max-lines-per-function`: 関数の行数を50行に制限
+- `max-lines-per-function`: 関数の行数を200行に制限
 - `max-lines`: ファイルの行数を300行に制限
+- `max-dependencies`: ファイルの依存関係数を20に制限
 
 ### セキュリティルール
 - `no-eval`: evalの使用を禁止
@@ -131,6 +132,23 @@ npm run format
 - `object-curly-spacing`: オブジェクトの波括弧内にスペース
 - `space-before-blocks`: ブロック前にスペース
 - `keyword-spacing`: キーワード周りのスペース
+- `camelcase`: キャメルケース命名を強制
+
+### ファイル名規則
+- `unicorn/filename-case`: ファイル名はcamelCaseまたはPascalCaseを強制
+  - 例: `myFile.js`, `MyComponent.tsx`, `ConsistentItemsTable.tsx`
+
+### Import/Export規則
+- `import/no-default-export`: default exportを禁止
+- `import/prefer-default-export`: default exportの推奨を無効化
+- `import/max-dependencies`: ファイルの依存関係数を20に制限
+- Named exportの使用を強制
+- `sort-imports`: 無効化（importの順序チェックなし）
+
+### 条件分岐・制御構造
+- `no-ternary`: 無効化（三項演算子の使用を許可）
+- `no-nested-ternary`: ネストした三項演算子を禁止
+- `no-unneeded-ternary`: 不要な三項演算子を禁止
 
 ## 使用例
 
@@ -218,6 +236,15 @@ enum Status {
   ACTIVE = 'active',
   INACTIVE = 'inactive'
 }
+
+// default exportの使用
+export default function MyComponent() {
+  return <div>Hello</div>;
+}
+
+// ファイル名の不適切な命名
+// my-component.tsx (kebab-case)
+// my_component.tsx (snake_case)
 ```
 
 ### ✅ Good Examples
@@ -246,4 +273,22 @@ import type { ApiResponse } from './types';
 
 // Union型の使用
 type Status = 'active' | 'inactive';
+
+// named exportの使用
+export const MyComponent = () => {
+  return <div>Hello</div>;
+};
+
+// 適切なファイル名
+// myComponent.tsx (camelCase)
+// MyComponent.tsx (PascalCase)
+// ConsistentItemsTable.tsx (PascalCase)
+
+// 三項演算子の使用（許可）
+export const getMessage = (isError) => isError ? "エラーです" : "成功です";
+
+// importの順序は任意（sort-importsが無効化されているため）
+import { useState } from 'react';
+import axios from 'axios';
+import { validateInput } from './utils';
 ```

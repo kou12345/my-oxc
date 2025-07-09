@@ -30,6 +30,7 @@
     "max-params": ["error", 3],
     "max-lines": ["error", 300],
     "max-lines-per-function": ["error", 200],
+    "max-dependencies": ["error", 20],
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
     "indent": ["error", 2],
@@ -147,7 +148,7 @@
     "no-shadow": "error",
     "no-shadow-restricted-names": "error",
     "no-sparse-arrays": "error",
-    "no-ternary": "error",
+    "no-ternary": "off",
     "no-this-before-super": "error",
     "no-undef-init": "error",
     "no-undefined": "error",
@@ -171,7 +172,7 @@
     "prefer-regex-literals": "error",
     "radix": "error",
     "require-yield": "error",
-    "sort-imports": "error",
+    "sort-imports": "off",
     "sort-vars": "error",
     "symbol-description": "error",
     "use-isnan": "error",
@@ -179,7 +180,10 @@
     "vars-on-top": "error",
     "wrap-iife": "error",
     "yoda": "error",
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"]
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "unicorn/filename-case": ["error", { "cases": { "camelCase": true, "pascalCase": true } }],
+    "import/no-default-export": "error",
+    "import/prefer-default-export": "off"
   },
   "categories": {
     "correctness": "error",
