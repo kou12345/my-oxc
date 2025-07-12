@@ -194,6 +194,7 @@
     "id-length": "off",
     "oxc/no-async-await": "off",
     "oxc/no-optional-chaining": "off",
+    "oxc/no-rest-spread-properties": "off",
     "sort-keys": "off",
     "unicorn/no-null": "off"
   },
