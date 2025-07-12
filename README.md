@@ -78,6 +78,10 @@ npm run format
 
 ## 設定されているルール
 
+### 環境設定
+- Browser環境、Node.js環境、ES2022標準のグローバル変数をサポート
+- `process`, `fetch`, `TextDecoder`などのビルトインオブジェクトを認識
+
 ### 基本的なルール
 - `no-unused-vars`: 使用されていない変数をエラーとする
 - `no-undef`: 未定義の変数をエラーとする
@@ -95,7 +99,7 @@ npm run format
 - `no-unsafe-return`: 安全でない戻り値を禁止
 - `no-unsafe-argument`: 安全でない引数を禁止
 - `no-non-null-assertion`: non-null assertionを禁止
-- `no-implicit-any`: 暗黙的anyを禁止
+- `@typescript-eslint/consistent-type-definitions`: type定義を強制（interfaceではなくtype）
 
 ### Dead Code削減ルール
 - `no-unused-expressions`: 未使用の式を禁止
@@ -112,7 +116,7 @@ npm run format
 - `max-params`: 関数の引数数を3に制限
 - `max-depth`: ネストの深さを3に制限
 - `max-lines-per-function`: 関数の行数を200行に制限
-- `max-lines`: ファイルの行数を300行に制限
+- `max-lines`: ファイルの行数を500行に制限（警告レベル）
 - `max-dependencies`: ファイルの依存関係数を20に制限
 
 ### セキュリティルール
@@ -123,8 +127,16 @@ npm run format
 
 ### Promise/非同期ルール
 - `no-async-promise-executor`: 非同期Promise executorを禁止
-- `no-await-in-loop`: ループ内でのawaitを禁止
+- `no-await-in-loop`: 無効化（直列処理やfor await...ofを許可）
 - `require-await`: 非同期関数でのawaitを強制
+- `oxc/no-async-await`: 無効化（async/awaitの使用を許可）
+
+### モダンJavaScript機能
+- `oxc/no-optional-chaining`: 無効化（オプショナルチェーニング`?.`を許可）
+- `oxc/no-rest-spread-properties`: 無効化（オブジェクトのrest/spreadを許可）
+- `no-ternary`: 無効化（三項演算子の使用を許可）
+- `no-nested-ternary`: ネストした三項演算子を禁止
+- `no-unneeded-ternary`: 不要な三項演算子を禁止
 
 ### コードスタイル
 - `indent`: インデント2スペース
@@ -133,6 +145,8 @@ npm run format
 - `space-before-blocks`: ブロック前にスペース
 - `keyword-spacing`: キーワード周りのスペース
 - `camelcase`: キャメルケース命名を強制
+- `id-length`: 無効化（短い変数名を許可）
+- `sort-keys`: 無効化（オブジェクトキーの順序チェックなし）
 
 ### ファイル名規則
 - `unicorn/filename-case`: ファイル名はcamelCaseまたはPascalCaseを強制
@@ -141,14 +155,11 @@ npm run format
 ### Import/Export規則
 - `import/no-default-export`: default exportを禁止
 - `import/prefer-default-export`: default exportの推奨を無効化
-- `import/max-dependencies`: ファイルの依存関係数を20に制限
+- `import/exports-last`: 無効化（ファイル末尾でのexport強制なし）
+- `import/group-exports`: 無効化（export文の統合強制なし）
+- `max-dependencies`: ファイルの依存関係数を20に制限
 - Named exportの使用を強制
 - `sort-imports`: 無効化（importの順序チェックなし）
-
-### 条件分岐・制御構造
-- `no-ternary`: 無効化（三項演算子の使用を許可）
-- `no-nested-ternary`: ネストした三項演算子を禁止
-- `no-unneeded-ternary`: 不要な三項演算子を禁止
 
 ### 値の取り扱い
 - `unicorn/no-null`: 無効化（nullとundefinedの使用を開発者の判断に委ねる）

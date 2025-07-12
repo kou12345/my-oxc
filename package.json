@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "bin": {
-    "my-oxc": "./bin/my-eslint.js"
+    "my-oxc": "./bin/my-oxc.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
