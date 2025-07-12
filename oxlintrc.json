@@ -1,4 +1,9 @@
 {
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
   "rules": {
     "no-unused-vars": "error",
     "no-undef": "error",
@@ -62,7 +67,7 @@
     "no-void": "error",
     "no-warning-comments": "warn",
     "no-async-promise-executor": "error",
-    "no-await-in-loop": "error",
+    "no-await-in-loop": "off",
     "no-promise-executor-return": "error",
     "prefer-promise-reject-errors": "error",
     "require-await": "error",
@@ -184,6 +189,11 @@
     "unicorn/filename-case": ["error", { "cases": { "camelCase": true, "pascalCase": true } }],
     "import/no-default-export": "error",
     "import/prefer-default-export": "off",
+    "import/exports-last": "off",
+    "import/group-exports": "off",
+    "id-length": "off",
+    "oxc/no-async-await": "off",
+    "sort-keys": "off",
     "unicorn/no-null": "off"
   },
   "categories": {
